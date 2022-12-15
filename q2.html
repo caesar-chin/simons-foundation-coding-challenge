@@ -7,66 +7,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            --aside-length: calc(100%)
+        }
+        
+        html {
+            min-height: 100vh;
+            font-size: 1.5rem;
+        }
+        
         body {
             margin: 0;
-            background-color: grey;
-            height: 100vh;
-            width: 100vw;
-        }
-        
-        .parent {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-template-rows: repeat(5, 1fr);
-            grid-column-gap: 0px;
-            grid-row-gap: 0px;
+            height: 100%;
         }
         
-        div {
+        header,
+        footer {
+            height: 10vh;
             border: 1px solid black;
             text-align: center;
         }
         
-        .header-div {
-            grid-area: 1 / 1 / 2 / 6;
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax( 640px, 1fr));
         }
         
-        .main-div {
-            grid-area: 2 / 1 / 5 / 5;
+        .main-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(640px, 1fr));
         }
         
-        .aside-top-div {
-            grid-area: 2 / 5 / 3 / 6;
+        .main-item {
+            height: 100%;
+            min-height: 40vh;
+            border: 1px solid black;
+            text-align: center;
         }
         
-        .aside-bottom-div {
-            grid-area: 3 / 5 / 5 / 6;
+        .aside-container {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
         }
         
-        .footer-div {
-            grid-area: 5 / 1 / 6 / 6;
+        .aside-item {
+            height: 100%;
+            min-height: 20vh;
+            border: 1px solid black;
+            text-align: center;
+        }
+        
+        footer {
+            border: 1px solid black;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div class="parent">
-        <div class="header-div">
-            <h1>Header</h1>
-        </div>
-        <div class="main-div">
-            <h1>Main</h1>
-        </div>
-        <div class="aside-top-div">
-            <h1>Aside Top</h1>
-        </div>
-        <div class="aside-bottom-div">
-            <h1>Aside Bottom</h1>
-        </div>
-        <div class="footer-div">
-            <h1>Footer</h1>
-        </div>
-    </div>
+    <header>Header</header>
+
+    <main>
+
+        <section class="main-container">
+            <div class="main-item">Main</div>
+        </section>
+
+        <section class="aside-container">
+            <div class="aside-item">Aside Top </div>
+            <div class="aside-item">Aside Bottom </div>
+        </section>
+
+    </main>
+
+    <footer>Footer</footer>
+
 </body>
 
 </html>
